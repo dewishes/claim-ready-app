@@ -1,0 +1,253 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-plus-jakarta-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-jetbrains-mono: 'JetBrains Mono', monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+body {
+  background-color: #FFFFFF;
+  color: #363C47;
+  font-family: var(--font-plus-jakarta-sans);
+  font-size: 17px;
+  line-height: 1.72;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: #DCF3EA;
+  color: #065F43;
+}
+
+/* Fluid Headline Typography */
+.headline-display {
+  font-family: var(--font-plus-jakarta-sans);
+  font-size: clamp(36px, 5.5vw, 60px);
+  font-weight: 800;
+  line-height: 1.06;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.headline-lg {
+  font-family: var(--font-plus-jakarta-sans);
+  font-size: clamp(31px, 3.8vw, 47px);
+  font-weight: 800;
+  line-height: 1.06;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.headline-md {
+  font-family: var(--font-plus-jakarta-sans);
+  font-size: clamp(23px, 2.5vw, 29px);
+  font-weight: 800;
+  line-height: 1.06;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.stat-number {
+  font-family: var(--font-plus-jakarta-sans);
+  font-size: clamp(44px, 5vw, 56px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.035em;
+  font-variant-numeric: tabular-nums;
+}
+
+.lead-p {
+  font-size: clamp(17.5px, 2vw, 20px);
+  line-height: 1.72;
+  color: #5B6472;
+  text-wrap: pretty;
+}
+
+.body-text {
+  font-size: 17px;
+  line-height: 1.72;
+  color: #363C47;
+  text-wrap: pretty;
+}
+
+.mono-label {
+  font-family: var(--font-jetbrains-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.pill-mono-label {
+  font-family: var(--font-jetbrains-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+/* Scanline effect for Headline Card */
+.scanlines-texture {
+  background-image: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.04) 50%,
+    rgba(0, 0, 0, 0.4) 50%
+  );
+  background-size: 100% 4px;
+}
+
+/* Continuous Marquee Ticker */
+@keyframes tickerLoop {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.ticker-track {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: tickerLoop 46s linear infinite;
+  will-change: transform;
+}
+
+.ticker-track:hover {
+  animation-play-state: paused;
+}
+
+/* Card Transitions & Shadows */
+.editorial-card {
+  background-color: #FFFFFF;
+  border: 1px solid #E7EAEF;
+  border-radius: 18px;
+  box-shadow: 0 1px 3px rgba(13, 17, 23, 0.05), 0 6px 16px -10px rgba(13, 17, 23, 0.14);
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.25s ease;
+}
+
+.editorial-card-interactive:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 6px rgba(13, 17, 23, 0.04), 0 18px 44px -22px rgba(13, 17, 23, 0.22);
+}
+
+/* Button Elevation & Transitions */
+.btn-primary {
+  background-color: #087A58;
+  color: #FFFFFF;
+  font-family: var(--font-plus-jakarta-sans);
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 9999px;
+  padding: 14px 28px;
+  box-shadow: 0 2px 6px rgba(13, 17, 23, 0.04), 0 18px 44px -22px rgba(13, 17, 23, 0.22);
+  transition: background-color 0.2s ease, transform 0.2s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.2s ease;
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-primary:hover {
+  background-color: #066748;
+  transform: translateY(-2px);
+}
+
+.btn-dark {
+  background-color: #0D1117;
+  color: #FFFFFF;
+  font-family: var(--font-plus-jakarta-sans);
+  font-size: 13.5px;
+  font-weight: 600;
+  border-radius: 9999px;
+  padding: 10px 20px;
+  transition: background-color 0.2s ease, transform 0.2s cubic-bezier(0.22, 1, 0.36, 1);
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.btn-dark:hover {
+  background-color: #087A58;
+  transform: translateY(-2px);
+}
+
+.btn-ghost {
+  background-color: #FFFFFF;
+  color: #0D1117;
+  border: 1px solid #E7EAEF;
+  font-family: var(--font-plus-jakarta-sans);
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 9999px;
+  padding: 14px 28px;
+  transition: background-color 0.2s ease, transform 0.2s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.2s ease;
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-ghost:hover {
+  background-color: #F7F8FA;
+  transform: translateY(-2px);
+  border-color: #D6DBE3;
+}
+
+/* Focus styles */
+a:focus-visible, button:focus-visible, input:focus-visible {
+  outline: 2px solid #087A58;
+  outline-offset: 3px;
+}
+
+/* Reduced Motion Override */
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track {
+    animation: none !important;
+  }
+  .editorial-card, .editorial-card-interactive, .btn-primary, .btn-dark, .btn-ghost {
+    transition: none !important;
+    transform: none !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Print Styles */
+@media print {
+  header, .ticker-wrap, .cta-share, .no-print {
+    display: none !important;
+  }
+  body {
+    color: #000000 !important;
+    background: #FFFFFF !important;
+  }
+  .editorial-card {
+    box-shadow: none !important;
+    border: 1px solid #CCCCCC !important;
+    break-inside: avoid;
+  }
+}
